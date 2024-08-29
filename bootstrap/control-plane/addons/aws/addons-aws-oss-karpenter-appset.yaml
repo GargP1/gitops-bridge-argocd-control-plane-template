@@ -42,8 +42,8 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: '{{metadata.annotations.addons_repo_url}}'
-          targetRevision: '{{metadata.annotations.addons_repo_revision}}'
+        - repoURL: https://github.com/GargP1/gitops-bridge-argocd-control-plane-template
+          targetRevision: main
           ref: values
         - chart: 'karpenter/karpenter'
           repoURL: 'public.ecr.aws'
