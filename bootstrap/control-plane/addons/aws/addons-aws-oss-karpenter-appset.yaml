@@ -60,7 +60,7 @@ spec:
                 clusterName: {{metadata.annotations.aws_cluster_name}}
                 interruptionQueue: {{metadata.annotations.karpenter_sqs_queue_name}}
                 featureGates:
-                  spotToSpotConsolidation: '{{values.spotospotConsolidation}}'
+                  spotToSpotConsolidation: {{values.spotospotConsolidation}}
               serviceAccount:
                 name: {{metadata.annotations.karpenter_service_account}}
                 annotations:
