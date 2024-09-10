@@ -16,6 +16,7 @@ spec:
                 addonChartReleaseName: karpenter
                 addonChartRepositoryNamespace: karpenter
                 addonChartVersion: 0.37.0
+                spotospotConsolidation: true
                 # using oci repostory already configure in argocd
                 # argocd repo add public.ecr.aws --type helm --name aws-public-ecr --enable-oci
                 addonChartRepository: public.ecr.aws
@@ -57,6 +58,8 @@ spec:
               settings:
                 clusterName: {{metadata.annotations.aws_cluster_name}}
                 interruptionQueue: {{metadata.annotations.karpenter_sqs_queue_name}}
+                featureGates:
+                  spotToSpotConsolidation: '{{values.spotospotConsolidation}}'
               serviceAccount:
                 name: {{metadata.annotations.karpenter_service_account}}
                 annotations:
