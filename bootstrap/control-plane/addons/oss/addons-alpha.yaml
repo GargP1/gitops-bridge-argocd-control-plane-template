@@ -11,11 +11,7 @@ spec:
         generators:
           - list:
               elements:
-                - values: |
-                    releaseName: pk8s-cluster-critical-priority-classes
-                    name: pk8s-cluster-critical
-                    description: 'Used for pk8s critical pods that must run in the cluster, but can be moved to another node if necessary.'
-                    value: 100000000
+                - values: a
           - clusters:
               values:
                 addonChartVersion: 3.12.0
