@@ -63,15 +63,10 @@ spec:
             valueFiles:
               - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/priority-classes/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/priority-classes/values.yaml
-            values: |
-              name: '{{values.name}}'
-              description: '{{values.description}}'
-              value: '{{values.value}}'
       destination:
-        namespace: 'priority-class'
+        namespace: priority-class
         name: '{{name}}'
       syncPolicy:
         automated: {}
         syncOptions:
           - CreateNamespace=true
-          - ServerSideApply=true  # Big CRDs.
