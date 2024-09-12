@@ -71,8 +71,7 @@ spec:
         namespace: 'priority-class'
         name: '{{name}}'
       syncPolicy:
-        automated:
-          prune: false
+        automated: {}
         syncOptions:
           - CreateNamespace=true
           - ServerSideApply=true  # Big CRDs.
