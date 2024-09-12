@@ -38,7 +38,7 @@ spec:
                     value: 10001000
           - clusters:
               values:
-                addonChartVersion: 0.2.0
+                addonChartVersion: 3.12.0
               selector:
                 matchLabels:
                   environment: test-dev
@@ -54,8 +54,8 @@ spec:
         - repoURL: '{{metadata.annotations.addons_repo_url}}'
           targetRevision: '{{metadata.annotations.addons_repo_revision}}'
           ref: values
-        - chart: 'priority-class'
-          repoURL: 'https://artifactory.xero-support.com/helm-incubator'
+        - chart: 'metrics-server'
+          repoURL: 'https://kubernetes-sigs.github.io/metrics-server'
           targetRevision: '{{values.addonChartVersion}}'
           helm:
             releaseName: {{values.releaseName}}
