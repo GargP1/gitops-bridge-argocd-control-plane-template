@@ -68,7 +68,7 @@ spec:
               description: '{{values.description}}'
               value: '{{values.value}}'
       destination:
-        namespace: "priority-class"
+        namespace: 'priority-class'
         name: '{{name}}'
       syncPolicy:
         automated:
