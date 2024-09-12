@@ -16,26 +16,6 @@ spec:
                     name: pk8s-cluster-critical
                     description: 'Used for pk8s critical pods that must run in the cluster, but can be moved to another node if necessary.'
                     value: 100000000
-                - values:
-                    releaseName: pk8s-node-critical-priority-classes
-                    name: pk8s-node-critical
-                    description: 'Used for pk8s critical pods that must not be moved from their current node.'
-                    value: 100001000
-                - values:
-                    releaseName: pk8s-workload-critical-priority-classes
-                    name: pk8s-workload-critical
-                    description: 'Used for customer owned critical cluster workloads such as artifactory.'
-                    value: 100000
-                - values:
-                    releaseName: cluster-instrumentation-priority-classes
-                    name: cluster-instrumentation
-                    description: 'Used for pk8s external (from compute team) instrumentation pods that must run in the cluster but can be moved to another node if necessary.'
-                    value: 10000000
-                - values:
-                    releaseName: node-instrumentation-priority-classes
-                    name: node-instrumentation
-                    description: 'Used for pk8s external (from compute team) instrumentation pods that must not be moved from their current node.'
-                    value: 10001000
           - clusters:
               values:
                 addonChartVersion: 3.12.0
