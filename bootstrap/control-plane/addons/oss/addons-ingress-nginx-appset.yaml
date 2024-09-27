@@ -4,7 +4,6 @@ kind: ApplicationSet
 metadata:
   name: addons-ingress-nginx-nlb
 spec:
-  goTemplate: true
   syncPolicy:
     preserveResourcesOnDeletion: true
   generators:
@@ -38,7 +37,7 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/ingress-nginx-nlb/values.yaml
       destination:
         namespace: 'ingress-nginx'
-        name: '{{.name}}'
+        name: '{{name}}'
       syncPolicy:
         automated: {}
         syncOptions:
