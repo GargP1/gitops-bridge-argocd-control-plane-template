@@ -61,5 +61,5 @@ spec:
                     region: '{{values.region}}'
                     bucket: '{{values.s3_bucket_name}}'
       destination:
-        namespace: velero
+        namespace: alpha
         name: '{{name}}'
