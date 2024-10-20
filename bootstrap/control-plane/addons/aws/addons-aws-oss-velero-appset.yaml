@@ -63,7 +63,3 @@ spec:
       destination:
         namespace: velero
         name: '{{name}}'
-      syncPolicy:
-        syncOptions:
-          - CreateNamespace=true
-          - ServerSideApply=true  # Big CRDs.
