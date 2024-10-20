@@ -36,7 +36,7 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/ingress-nginx-nlb/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/ingress-nginx-nlb/values.yaml
       destination:
-        namespace: 'ingress-nginx'
+        namespace: ingress-nginx
         name: '{{name}}'
       syncPolicy:
         automated: {}
