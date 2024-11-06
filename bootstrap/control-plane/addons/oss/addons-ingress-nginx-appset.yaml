@@ -9,7 +9,7 @@ spec:
   generators:
   - clusters:
       values:
-        addonChartVersion: 4.10.0
+        addonChartVersion: 1.0.1
       selector:
         matchLabels:
           environment: test-dev
@@ -17,29 +17,39 @@ spec:
           - key: enable_ingress_nginx_nlb
             operator: In
             values: ['true']
+  - clusters:
+      values:
+        addonChartVersion: 1.0.1
+      selector:
+        matchLabels:
+          environment: staging
+        matchExpressions:
+          - key: enable_ingress_nginx_nlb
+            operator: In
+            values: ['true']
   template:
     metadata:
-      name: addon-ingress-nginx-nlb
+      name: addon-nri-prometheus
     spec:
       project: default
       sources:
         - repoURL: '{{metadata.annotations.addons_repo_url}}'
           targetRevision: '{{metadata.annotations.addons_repo_revision}}'
           ref: values
-        - chart: 'ingress-nginx'
-          repoURL: 'https://kubernetes.github.io/ingress-nginx'
+        - chart: 'nri-prometheus'
+          repoURL: 'https://helm-charts.newrelic.com'
           targetRevision: '{{values.addonChartVersion}}'
           helm:
-            releaseName: 'ingress-nginx'
+            releaseName: 'nri-prometheus'
             ignoreMissingValueFiles: true
             valueFiles:
-              - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/ingress-nginx-nlb/values.yaml
-              - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/ingress-nginx-nlb/values.yaml
+              - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/nri-prometheus/values.yaml
+              - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/nri-prometheus/values.yaml
       destination:
-        namespace: ingress-nginx
+        namespace: monitoring
         name: '{{name}}'
       syncPolicy:
         automated: {}
         syncOptions:
           - CreateNamespace=true
-          - ServerSideApply=true # Big CRDs.
+          - ServerSideApply=true  # Big CRDs.
