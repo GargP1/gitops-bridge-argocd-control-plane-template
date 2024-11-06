@@ -9,7 +9,7 @@ spec:
   generators:
   - clusters:
       values:
-        addonChartVersion: 1.0.1
+        addonChartVersion: 1.14.1
       selector:
         matchLabels:
           environment: test-dev
@@ -19,7 +19,7 @@ spec:
             values: ['true']
   - clusters:
       values:
-        addonChartVersion: 1.0.1
+        addonChartVersion: 1.14.1
       selector:
         matchLabels:
           environment: staging
