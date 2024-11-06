@@ -48,6 +48,7 @@ spec:
             values: |
               global:
                 customSecretName: 'newrelic-newrelic-infrastructure-config'
+                customSecretLicenseKey: 'license'
                 cluster: '{{name}}'
       destination:
         namespace: monitoring
