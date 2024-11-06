@@ -46,7 +46,8 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/nri-prometheus/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/nri-prometheus/values.yaml
             values: |
-              customSecretName: 'newrelic-newrelic-infrastructure-config'
+              global:
+                customSecretName: 'newrelic-newrelic-infrastructure-config'
       destination:
         namespace: monitoring
         name: '{{name}}'
