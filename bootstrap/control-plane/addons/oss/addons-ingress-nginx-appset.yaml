@@ -9,7 +9,7 @@ spec:
   generators:
   - clusters:
       values:
-        addonChartVersion: 1.14.1
+        addonChartVersion: 1.0.1
       selector:
         matchLabels:
           environment: test-dev
@@ -19,7 +19,7 @@ spec:
             values: ['true']
   - clusters:
       values:
-        addonChartVersion: 1.14.1
+        addonChartVersion: 1.0.1
       selector:
         matchLabels:
           environment: staging
@@ -46,6 +46,10 @@ spec:
               - $values/{{metadata.annotations.addons_repo_basepath}}common/addons/nri-prometheus/values.yaml
               - $values/{{metadata.annotations.addons_repo_basepath}}clusters/{{name}}/addons/nri-prometheus/values.yaml
             values: |
+              config:
+                verbose: false
+                insecure_skip_verify: false
+                scrape_enabled_label: "newrelic.com/scrape"
               global:
                 customSecretName: 'newrelic-newrelic-infrastructure-config'
                 customSecretLicenseKey: 'license'
