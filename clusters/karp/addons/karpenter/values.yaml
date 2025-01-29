@@ -1,0 +1,9 @@
+serviceAccount: 
+  name: karpenter
+  annotations: 
+    eks.amazonaws.com/role-arn: arn:aws:iam::412857254796:role/karpenter-20240411022321646700000005
+settings:
+  interruptionQueue: karpenter
+  clusterName: karp
+  featureGates:
+    spotToSpotConsolidation: true
