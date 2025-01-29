@@ -15,7 +15,7 @@ spec:
                 addonChart: karpenter
                 addonChartReleaseName: karpenter
                 addonChartRepositoryNamespace: karpenter
-                addonChartVersion: 0.37.0
+                addonChartVersion: 1.0.9
                 spotospotConsolidation: "true"
                 # using oci repostory already configure in argocd
                 # argocd repo add public.ecr.aws --type helm --name aws-public-ecr --enable-oci
