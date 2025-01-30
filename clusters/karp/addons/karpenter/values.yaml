@@ -1,3 +1,4 @@
+replicas: 2
 serviceAccount: 
   name: karpenter
   annotations: 
